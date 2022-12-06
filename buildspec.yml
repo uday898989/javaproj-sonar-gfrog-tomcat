@@ -1,0 +1,14 @@
+version: 0.2
+phases:
+  build:
+    commands:
+      - echo Entered the build phase...
+      - mvn clean package
+  post_build:
+    commands:
+      - echo build completed Successfully
+
+artifacts:
+  files:
+    -target/01-maven-web-app.war
+  discard-paths: yes
