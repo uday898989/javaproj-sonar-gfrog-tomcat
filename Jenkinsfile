@@ -41,6 +41,11 @@ pipeline {
                 sh ('mvn verify');
             }
         }
+	 stage('Install') {
+            steps {
+                sh ('mvn install');
+            }
+        }
         
          stage('Quality Gate Statuc Check'){
               steps{
@@ -59,11 +64,7 @@ pipeline {
                 }  
               }
         
-        stage('Install') {
-            steps {
-                sh ('mvn install');
-            }
-        }
+        
             
         stage('Stage-9 : Deployment - Deploy a Artifact devops-3.0.0-SNAPSHOT.war file to Tomcat Server') { 
             steps {
