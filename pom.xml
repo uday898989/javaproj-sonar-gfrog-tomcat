@@ -8,13 +8,7 @@
   <name>01-maven-web-app</name>
   <url>http://maven.apache.org</url>
  
-  <distributionManagement>
-    <repository>
-        <id>central</id>
-        <name>jfrog.skDiamond.io-releases</name>
-        <url>http://54.89.147.42:8081/artifactory/libs-release-local</url>
-    </repository>
-</distributionManagement>
+  
   
   <dependencies>
     <dependency>
