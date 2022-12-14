@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('checkout') {
             steps {
-                checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/kmehaboobsubhani/javaWorking.git']]])
+                checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/uday898989/javaproj-sonar-gfrog-tomcat.git']]])
             }
         }        
         stage('Clean') {
@@ -89,13 +89,13 @@ pipeline {
             
         stage('Stage-9 : Deployment - Deploy a Artifact devops-3.0.0-SNAPSHOT.war file to Tomcat Server') { 
             steps {
-                sh 'curl -u admin:redhat@123 -T target/**.war "http://44.199.205.16:8080/manager/text/deploy?path=/subhani&update=true"'
+                sh 'curl -u admin:redhat@123 -T target/**.war "http://44.199.205.16:8080/manager/text/deploy?path=/uday&update=true"'
             }
         } 
   
           stage('Stage-10 : SmokeTest') { 
             steps {
-                sh 'curl --retry-delay 10 --retry 5 "http://44.199.205.16:8080/subhani"'
+                sh 'curl --retry-delay 10 --retry 5 "http://44.199.205.16:8080/uday"'
             }
         }
         
