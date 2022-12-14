@@ -64,7 +64,28 @@ pipeline {
                 }  
               }
         
-        
+        stage('Upload'){
+            steps{
+                rtUpload (
+                 serverId:"Artifactory" ,
+                  spec: '''{
+                   "files": [
+                      {
+                      "pattern": "*.war",
+                      "target": "libs-snapshot-local"
+                      }
+                            ]
+                           }''',
+                        )
+            }
+        }
+        stage ('Publish build info') {
+            steps {
+                rtPublishBuildInfo (
+                    serverId: "Artifactory"
+                )
+            }
+        }
             
         stage('Stage-9 : Deployment - Deploy a Artifact devops-3.0.0-SNAPSHOT.war file to Tomcat Server') { 
             steps {
